@@ -77,9 +77,14 @@ export default function NewArticlePage() {
       <div className="border-b border-line bg-card">
         <div className="container-content flex h-16 items-center justify-between">
           <p className="font-display text-lg font-bold text-ink">Write an article</p>
-          <button onClick={handleLogout} className="font-mono text-xs uppercase tracking-wider text-stone hover:text-clay">
-            Log out
-          </button>
+          <div className="flex items-center gap-5">
+            <a href="/admin/manage" className="font-mono text-xs uppercase tracking-wider text-clay hover:underline">
+              Manage articles
+            </a>
+            <button onClick={handleLogout} className="font-mono text-xs uppercase tracking-wider text-stone hover:text-clay">
+              Log out
+            </button>
+          </div>
         </div>
       </div>
 

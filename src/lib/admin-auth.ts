@@ -11,16 +11,11 @@ function getSecret(): string {
   return secret;
 }
 
-/**
- * Verifies a plaintext password against the salted hash stored in
- * ADMIN_PASSWORD_HASH. Hash format: "salt:hash" (both hex), matching
- * what scripts/hash-password.js generates.
- */
 export function verifyPassword(plainPassword: string): boolean {
   const stored = process.env.ADMIN_PASSWORD_HASH;
   if (!stored || !stored.includes(":")) {
     throw new Error(
-      "ADMIN_PASSWORD_HASH is not set correctly. Run scripts/hash-password.js to generate one."
+      "ADMIN_PASSWORD_HASH is not set correctly."
     );
   }
   const [salt, storedHashHex] = stored.split(":");
