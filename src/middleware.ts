@@ -2,14 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 const SESSION_COOKIE_NAME = "admin_session";
 
-/**
- * Lightweight check only — no crypto here, since middleware runs on the
- * Edge Runtime which doesn't support Node's `crypto` module. This just
- * confirms a token exists and isn't expired; it does NOT verify the
- * signature. Real cryptographic verification happens server-side in the
- * API routes (login/publish/logout), which run on the Node.js runtime.
- * This is a UX redirect, not the security boundary.
- */
 function looksLikeValidToken(token: string | undefined): boolean {
   if (!token) return false;
   const [payload, signature] = token.split(".");
