@@ -105,13 +105,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
 
-      <div className="mx-auto mt-10 max-w-3xl rounded-card border border-line bg-card p-5 font-mono text-[11px] uppercase tracking-wider text-stone">
-        This article contains affiliate links.{" "}
-        <Link href="/affiliate-disclosure" className="text-clay hover:underline">
-          Learn more
-        </Link>
-      </div>
-
       {related.length > 0 && (
         <div className="mx-auto mt-16 max-w-5xl">
           <p className="eyebrow">Keep reading</p>
